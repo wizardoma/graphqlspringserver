@@ -4,16 +4,16 @@ import com.coxautodev.graphql.tools.GraphQLQueryResolver;
 import com.wizardom.graphiqldemo.model.Location;
 import com.wizardom.graphiqldemo.repository.LocationRepository;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.apachecommons.CommonsLog;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-@CommonsLog
+@Component
 @RequiredArgsConstructor
 public class Query implements GraphQLQueryResolver {
     private final LocationRepository locationRepository;
 
-    List<Location> findAllLocations(){
+    public List<Location> findAllLocations(){
         return locationRepository.findAll();
     }
 }
